@@ -1,0 +1,19 @@
+<html>
+<head>
+
+    <title></title></head>
+<body>
+<h1>Random anime character generator</h1>
+<img id="animeChar" src="/images/itachi.jpg" alt="Itachi" height="500" width="400">
+<h1 id="ImageName">Itachi</h1>
+<button onclick="randomChar()">Generate</button>
+<script>
+    async function  randomChar(){
+     const response=await fetch("/characters/random");
+     const character=await response.json();
+     document.getElementById("animeChar").src=character.imagePath;
+     document.getElementById("ImageName").textContent=character.name;
+    }
+</script>
+</body>
+</html>
